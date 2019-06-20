@@ -8,3 +8,12 @@ before_install:
 
 script:
   - docker run eviatenne/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-244308422964"
+  bucket_path: "docker"
+  on:
+    branch: master
